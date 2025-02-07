@@ -1,8 +1,8 @@
-name: Frequent Commit
+name: Daily Commit
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
+    - cron: '47 18 * * *'  # Runs at 6:47 PM UTC (12:17 AM IST)
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
 
       - name: Make a Dummy Change
         run: |
-          echo "Last run: $(date --utc)" >> last_run.log  # Ensures a new commit every run
+          echo "Last run: $(date --utc)" >> last_run.log  # Append timestamp to ensure change
           git add last_run.log
 
       - name: Commit and Push Changes
