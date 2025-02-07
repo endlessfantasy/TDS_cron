@@ -2,28 +2,21 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '8 20 * * *' 
+    - cron: '8 25 * * *' 
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
   commit:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: 23f2001413@ds.study.iitm.ac.in
         run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "23f2001413@ds.study.iitm.ac.in"
-
-      - name: Make a Dummy Change
-        run: |
-          echo "Last run: $(date --utc)" >> daily_5.yaml # Append timestamp to ensure change
-          git add daily_5.yaml
-
-      - name: Commit and Push Changes
-        run: |
-          git commit -m "Automated commit: $(date --utc)" || echo "No changes to commit"
-          git push || echo "Push failed"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "endless.fantasykawai@gmail.com"
+          echo "Daily commit on $(date)" >> daily-commit.txt
+          git add daily-commit.txt
+          git commit -m "Daily automated commit by GitHub Actions"
+          git push
