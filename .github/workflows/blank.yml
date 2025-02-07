@@ -2,7 +2,7 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '10 19 * * *'  # Runs at 6:47 PM UTC (12:17 AM IST)
+    - cron: '8 20 * * *' 
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -20,8 +20,8 @@ jobs:
 
       - name: Make a Dummy Change
         run: |
-          echo "Last run: $(date --utc)" >> last_run.log  # Append timestamp to ensure change
-          git add last_run.log
+          echo "Last run: $(date --utc)" >> daily_5.yaml # Append timestamp to ensure change
+          git add daily_5.yaml
 
       - name: Commit and Push Changes
         run: |
